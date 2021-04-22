@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move ( Vector2 movementVector, Rigidbody rb ) {
         Vector3 movement = new Vector3( movementVector.x, 0.0f, movementVector.y );
-        rb.AddForce( movement * movementSpeed );
+        //rb.AddForce( movement * movementSpeed );
+        rb.MovePosition( rb.position + (movement * movementSpeed * Time.deltaTime) );
     }
 }
