@@ -425,10 +425,12 @@ GameObject:
   m_Component:
   - component: {fileID: 739798885}
   - component: {fileID: 739798884}
+  - component: {fileID: 739798889}
+  - component: {fileID: 739798888}
   - component: {fileID: 739798883}
   - component: {fileID: 739798882}
-  - component: {fileID: 739798887}
   - component: {fileID: 739798886}
+  - component: {fileID: 739798887}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -446,7 +448,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -461,10 +463,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 739798881}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ce80b7b5a1e76c45818002f23ccef54, type: 3}
+  m_Script: {fileID: 11500000, guid: b27cf821e22203345834f34643f6881a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  movementSpeed: 10
 --- !u!212 &739798884
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -573,6 +575,34 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &739798888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739798881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90f77b76b5fbcb44089dad90da6971dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpRequest: 0
+  jumpSpeed: 10
+  fallMultiplier: 2.5
+  riseMultiplier: 1
+--- !u!114 &739798889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739798881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ce80b7b5a1e76c45818002f23ccef54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1046840748
 GameObject:
   m_ObjectHideFlags: 0
