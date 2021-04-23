@@ -4,16 +4,64 @@ using UnityEngine;
 
 public class PlayerJump : MonoBehaviour 
 {
+    [Header("Control")]
     public bool jumpRequest;
-    [SerializeField] private float jumpSpeed;
+    public bool isGrounded;
+    public bool isJumping;
+    public bool doubleJump;
 
-    public void Jump( bool request, Rigidbody rb )
+    [Header("Physics")]
+    private Rigidbody rb;
+    [SerializeField] private float jumpSpeed;
+    //[SerializeField] private float fallSpeed;
+
+    private void Awake()
     {
-        if(request)
+        rb = GetComponent<Rigidbody>();
+    }
+
+    private void Start()
+    {
+        isGrounded = false;
+        isJumping = false;
+        jumpRequest = false;
+        doubleJump = true;
+    }
+
+    public void Jump( bool request )
+    {
+        if( request && (isGrounded || doubleJump) )
         {
             rb.AddForce(Vector2.up * jumpSpeed, ForceMode.Impulse);
-            jumpRequest = false;
-            //isJumping = true;
+
+            if( isJumping )
+                doubleJump = false;
+            else
+                isJumping = true;
         }
+        jumpRequest = false;
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        isGrounded = true;
+        isJumping = false;
+        doubleJump = true;
+    }
+
+    void OnCollisionExit(Collision collisionInfo)
+    {
+       isGrounded = false;
+    }
+
+    //Not sure if I want to add this or not yet...
+    /*public void HandleFall()
+    {
+        //Makes the fall cooler and faster
+        if (rb.velocity.y < 0)
+        {
+            rb.AddForce(Vector2.down * fallSpeed, ForceMode.Impulse);
+            isJumping = false;
+        }
+    }*/
 }

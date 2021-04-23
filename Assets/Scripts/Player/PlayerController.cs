@@ -34,6 +34,6 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         playerMovement.Move( movementVector, rb );
-        playerJump.Jump( playerJump.jumpRequest, rb );
+        playerJump.Jump( playerJump.jumpRequest );
     }
 }
