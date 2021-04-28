@@ -541,6 +541,7 @@ GameObject:
   - component: {fileID: 739798882}
   - component: {fileID: 739798886}
   - component: {fileID: 739798887}
+  - component: {fileID: 739798892}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -748,6 +749,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 280591975}
   projectile: {fileID: 8494311626789242523, guid: a4a81913513e1764b9b979cc6a88ebdf, type: 3}
+--- !u!95 &739798892
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739798881}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 123b345b31895a1499b5422ddd7eda10, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1046840748
 GameObject:
   m_ObjectHideFlags: 0
