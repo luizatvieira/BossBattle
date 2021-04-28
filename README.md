@@ -11,4 +11,5 @@ By the end of the project I expect to have created a full boss battle demo.
 - There will be cool visual effects for each attack.
 
 As of right now, what is currently complete is:
-- Player basic movement (in 3D);
+- Player movement (walk, jump and dash);
+- Player basic shooting.
