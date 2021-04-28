@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        if (direction == 1)
+        if (direction > 0)
         {
             transform.eulerAngles = new Vector3 (0, 0, 0);
             return;
