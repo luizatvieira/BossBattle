@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     private void OnMove( InputValue movementValue )
     {
         movementVector = movementValue.Get<Vector2>();
+        FlipPlayer( movementVector.x );
     }
 
     private void OnJump()
@@ -56,6 +57,23 @@ public class PlayerController : MonoBehaviour
         //animator.SetBool("isFalling", !playerJump.isGrounded);
         //animator.SetBool("isJumping", playerJump.isJumping);
         //animator.SetBool("isDashing", playerDash.isDashing);
+    }
+
+    private void FlipPlayer( float direction )
+    {
+        if ( direction == 0 )
+        {
+            return;
+        }
+
+        if (direction == 1)
+        {
+            transform.eulerAngles = new Vector3 (0, 0, 0);
+            return;
+        }
+       transform.eulerAngles = new Vector3 (0, 180, 0);
+       return;
+
     }
 
     // FixedUpdate is called once per fixed frame (used for physics calculations)
