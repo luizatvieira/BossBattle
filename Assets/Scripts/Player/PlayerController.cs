@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
     {
         animator.SetBool("isWalking", playerMovement.isWalking);
         //animator.SetBool("isFalling", !playerJump.isGrounded);
-        //animator.SetBool("isJumping", playerJump.isJumping);
+        animator.SetBool("isJumping", playerJump.isJumping);
         //animator.SetBool("isDashing", playerDash.isDashing);
     }
 
