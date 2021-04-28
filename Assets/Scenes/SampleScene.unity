@@ -617,6 +617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c528421014587074fa39714a12b7df77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dashEffect: {fileID: 7404876867649067260, guid: f6671aa68ac7f5d40a9f6f41ff0dab07, type: 3}
   dashSpeed: 10
   dashTime: 1
   waitTime: 4
