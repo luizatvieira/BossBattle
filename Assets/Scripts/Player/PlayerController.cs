@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     private PlayerMovement playerMovement;
     private PlayerJump playerJump;
     private PlayerDash playerDash;
+    private PlayerFire playerFire;
 
     [Header("Movement")]
     private Rigidbody rb;
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         playerJump = GetComponent<PlayerJump>();
         playerDash = GetComponent<PlayerDash>();
+        playerFire = GetComponent<PlayerFire>();
     }
     
     private void OnMove( InputValue movementValue )
@@ -36,6 +38,11 @@ public class PlayerController : MonoBehaviour
     {
         if ( playerDash.canDash )
             StartCoroutine( playerDash.Dash() );
+    }
+
+    private void OnFire()
+    {
+        playerFire.Shoot();
     }
 
     // FixedUpdate is called once per fixed frame (used for physics calculations)
