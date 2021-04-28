@@ -32,7 +32,6 @@ public class PlayerController : MonoBehaviour
     private void OnMove( InputValue movementValue )
     {
         movementVector = movementValue.Get<Vector2>();
-        playerMovement.isWalking = true;
     }
 
     private void OnJump()
@@ -68,6 +67,14 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if ( movementVector.x != 0 || movementVector.y != 0 ) 
+        {
+            playerMovement.isWalking = true;
+        } 
+        else
+        {
+            playerMovement.isWalking = false;
+        }
         HandleAnimations();
     }
 }
