@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
     private void OnDash()
     {
         if ( playerDash.canDash )
-            StartCoroutine( playerDash.Dash() );
+            StartCoroutine( playerDash.Dash( movementVector ) );
     }
 
     private void OnFire()
@@ -65,7 +65,6 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
-
         if (direction > 0)
         {
             transform.eulerAngles = new Vector3 (0, 0, 0);

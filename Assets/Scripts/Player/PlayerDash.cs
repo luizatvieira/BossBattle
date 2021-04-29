@@ -1,4 +1,5 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -27,11 +28,17 @@ public class PlayerDash : MonoBehaviour
         canDash = true;
     }
 
-    public IEnumerator Dash()
+    public IEnumerator Dash( Vector2 dashDirection )
     {
         isDashing = true;
         canDash = false;
-        GameObject thisDash = Instantiate( dashEffect, transform.position, Quaternion.identity );
+        float rotation = (dashDirection.x*-90) + (dashDirection.y*180);
+        Debug.Log(rotation);
+        GameObject thisDash = Instantiate( 
+            dashEffect, 
+            transform.position, 
+            Quaternion.Euler( 0f, rotation, 0f ) 
+        );
 
         yield return new WaitForSeconds( dashTime );
         Destroy( thisDash );
