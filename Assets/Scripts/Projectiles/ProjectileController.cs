@@ -1,12 +1,18 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ProjectileController : MonoBehaviour
 {
-    //public Transform target;
+    private Transform target;
     [SerializeField] private float speed; 
     private Rigidbody rb;
+
+    public void SetTarget ( String tag ) 
+    {
+        target = GameObject.FindGameObjectWithTag( tag ).transform;
+    }
 
     // Start is called before the first frame update
     void Awake()
@@ -17,8 +23,14 @@ public class ProjectileController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        rb.velocity = transform.right * speed;
-        //rb.MovePosition( new Vector3(0,4f,0) /*target.position*/ * Time.deltaTime * speed );
+        if ( target != null )
+        {
+            transform.position = Vector3.MoveTowards( transform.position, target.position, Time.deltaTime * speed );
+        }
+        // else 
+        // {
+        //     rb.velocity = transform.right * speed;
+        // }
     }
 
     void OnTriggerEnter( Collider hitInfo )

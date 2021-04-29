@@ -9,6 +9,7 @@ public class PlayerFire : MonoBehaviour
 
     public void Shoot () 
     {
-        Instantiate( projectile, firePoint.position, firePoint.rotation );
+        GameObject thisProjectile = Instantiate( projectile, firePoint.position, firePoint.rotation );
+        thisProjectile.GetComponent<ProjectileController>().SetTarget("Enemy");
     }
 }
