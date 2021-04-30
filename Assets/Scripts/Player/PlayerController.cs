@@ -11,17 +11,19 @@ public class PlayerController : MonoBehaviour
     private PlayerDash playerDash;
     private PlayerFire playerFire;
 
+    [SerializeField] private GameObject flipableComponents;
+
     [Header("Movement")]
     private Rigidbody rb;
     private Vector2 movementVector;
 
     [Header("Animation")]
-    private Animator animator;
+    [SerializeField] private Animator animator;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        animator = GetComponent<Animator>();
+        //animator = flipableComponents.GetComponent<Animator>();
 
         playerMovement = GetComponent<PlayerMovement>();
         playerJump = GetComponent<PlayerJump>();
@@ -67,10 +69,10 @@ public class PlayerController : MonoBehaviour
         }
         if (direction > 0)
         {
-            transform.eulerAngles = new Vector3 (0, 0, 0);
+            flipableComponents.transform.eulerAngles = new Vector3 (0, 0, 0);
             return;
         }
-       transform.eulerAngles = new Vector3 (0, 180, 0);
+       flipableComponents.transform.eulerAngles = new Vector3 (0, 180, 0);
        return;
 
     }
