@@ -20,12 +20,17 @@ public class CinemachineSwitcher : MonoBehaviour
     public bool isFrontCamOn;
     public bool isLeftCamOn;
 
+    [Header("Cinemachine Handling")]
+    private CinemachineHandler cinemachineHandler;
+
     // Start is called before the first frame update
     void Awake()
     {
         frontCamPosition = frontCam.GetComponent<Transform>().position;
         leftCamPosition = leftCam.GetComponent<Transform>().position;
         rightCamPosition = rightCam.GetComponent<Transform>().position;
+
+        cinemachineHandler = GetComponent<CinemachineHandler>();
     }
 
     void Start()
@@ -60,5 +65,6 @@ public class CinemachineSwitcher : MonoBehaviour
             isFrontCamOn = false;
             isLeftCamOn = false;
         }
+        cinemachineHandler.FlipAllObjectsToCurrentCam();
     }
 }

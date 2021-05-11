@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
     
     private void OnMove( InputValue movementValue )
     {
-        movementVector = cinemachineHandler.AdaptMoveToCurrentCam( movementValue.Get<Vector2>() );
+        movementVector = cinemachineHandler.AdaptMoveToCurrentCam(movementValue.Get<Vector2>());
         FlipPlayer( movementVector.x );
     }
 
@@ -72,10 +72,10 @@ public class PlayerController : MonoBehaviour
         }
         if (direction > 0)
         {
-            flipableComponents.transform.eulerAngles = new Vector3 (0, 0, 0);
+            flipableComponents.transform.eulerAngles = cinemachineHandler.FlipObjectToCurrentCam(new Vector3 (0, 0, 0));
             return;
         }
-       flipableComponents.transform.eulerAngles = new Vector3 (0, 180, 0);
+       flipableComponents.transform.eulerAngles = cinemachineHandler.FlipObjectToCurrentCam(new Vector3 (0, 180, 0));
        return;
 
     }

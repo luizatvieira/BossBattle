@@ -5,6 +5,7 @@ using UnityEngine;
 public class CinemachineHandler : MonoBehaviour
 {
     private CinemachineSwitcher cinemachineSwitcher;
+    [SerializeField] private Transform[] flibableObjects;
 
     void Awake()
     {
@@ -31,5 +32,27 @@ public class CinemachineHandler : MonoBehaviour
                 movementVector.x
             );
         }
+    }
+
+    //Flips only the objects that need flipping (such as the player and the enemy)
+    public void FlipAllObjectsToCurrentCam()
+    {
+        foreach ( Transform obj in flibableObjects )
+        {
+            obj.transform.eulerAngles = FlipObjectToCurrentCam( new Vector3 (0, 0, 0) );
+        }
+    }
+
+    public Vector3 FlipObjectToCurrentCam( Vector3 rotation )
+    {
+        if ( !cinemachineSwitcher.isFrontCamOn )
+        {
+            return new Vector3(
+                rotation.x,
+                rotation.y+90,
+                rotation.z
+            );
+        }
+        return rotation;
     }
 }
