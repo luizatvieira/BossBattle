@@ -60,7 +60,5 @@ public class CinemachineSwitcher : MonoBehaviour
             isFrontCamOn = false;
             isLeftCamOn = false;
         }
-        Debug.Log(isFrontCamOn);
-        Debug.Log(isLeftCamOn);
     }
 }
