@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Visual Shifts")]
     [SerializeField] private GameObject flipableComponents;
-    [SerializeField] private CinemachineSwitcher mainCinemachineSwitch;
+    [SerializeField] private CinemachineHandler cinemachineHandler;
 
     [Header("Movement")]
     private Rigidbody rb;
@@ -36,26 +36,8 @@ public class PlayerController : MonoBehaviour
     
     private void OnMove( InputValue movementValue )
     {
-        movementVector = movementValue.Get<Vector2>();
+        movementVector = cinemachineHandler.AdaptMoveToCurrentCam( movementValue.Get<Vector2>() );
         FlipPlayer( movementVector.x );
-        if ( mainCinemachineSwitch.isFrontCamOn )
-        {
-            return;
-        }
-        else if ( mainCinemachineSwitch.isLeftCamOn )
-        {
-            movementVector = new Vector2(
-                movementVector.y,
-                -movementVector.x
-            );
-        } 
-        else
-        {
-            movementVector = new Vector2(
-                -movementVector.y,
-                movementVector.x
-            );
-        }
     }
 
     private void OnJump()
